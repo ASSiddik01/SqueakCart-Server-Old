@@ -1,0 +1,41 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Squeak Cart",
+    "dateExported": "2023-05-09T10:02:50.673Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "3ba7c58a-59ca-406d-bde6-547097b76f3d",
+            "name": "User",
+            "containerId": "",
+            "created": "2023-05-09T08:58:52.631Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "757fce97-f255-4261-97fd-a7e42e223041",
+            "colId": "432770e5-ddb7-4831-b22e-02f447a4b94c",
+            "containerId": "3ba7c58a-59ca-406d-bde6-547097b76f3d",
+            "name": "create user",
+            "url": "/user/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-09T09:02:18.856Z",
+            "modified": "2023-05-09T09:15:34.447Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"firstname\":\"Abu\",\n  \"lastname\":\"Shama\",\n  \"email\":\"test1@test1.com\",\n  \"phone\":\"019238219031\",\n  \"password\":\"test1\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ],
+    "settings": {
+        "options": {
+            "baseUrl": "http://localhost:4000/api/v1"
+        }
+    }
+}
