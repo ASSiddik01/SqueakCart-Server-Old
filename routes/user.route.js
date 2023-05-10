@@ -22,6 +22,24 @@ router
   .post(userControllers.loginUser);
 
 router
+  .route("/refresh")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(userControllers.refreshToken);
+
+router
+  .route("/logout")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(userControllers.logoutUser);
+
+router
   .route("/")
   /**
    * @api {get} /

@@ -1,5 +1,7 @@
 const User = require("../models/user.schema");
+const { generateRefreshToken } = require("../utils/refreshToken");
 const { generateToken } = require("../utils/token");
+const jwt = require("jsonwebtoken");
 
 // Save User Service
 exports.saveUserService = async (reqData) => {
@@ -21,6 +23,16 @@ exports.loginUserService = async (reqData) => {
   const { email, password } = reqData;
   const findUser = await User.findOne({ email });
   if (findUser && (await findUser.isPasswordMatched(password))) {
+    const refreshToken = await generateRefreshToken(findUser?._id);
+    const updateUser = await User.findByIdAndUpdate(
+      findUser?._id,
+      {
+        refreshToken: refreshToken,
+      },
+      {
+        new: true,
+      }
+    );
     const user = {
       _id: findUser?._id,
       firstname: findUser?.firstname,
@@ -29,6 +41,7 @@ exports.loginUserService = async (reqData) => {
       phone: findUser?.phone,
       role: findUser?.role,
       token: generateToken(findUser?._id),
+      refreshToken: refreshToken,
     };
     return user;
   } else {
@@ -100,4 +113,49 @@ exports.unblockUserService = async (id, reqData) => {
     }
   );
   return unblockedUser;
+};
+
+// refresh token service
+exports.refreshTokenService = async (cookie) => {
+  if (!cookie?.refreshToken) {
+    return false;
+  } else {
+    const refreshToken = cookie?.refreshToken;
+    const user = await User.findOne({ refreshToken });
+    if (!user) {
+      throw new Error();
+    }
+    const accessToken = jwt.verify(
+      refreshToken,
+      process.env.SECRET_KEY,
+      (err, decoded) => {
+        if (err || user._id === decoded.id) {
+          throw new Error();
+        }
+        const accessToken = generateToken(user._id);
+        return accessToken;
+      }
+    );
+    return { accessToken: accessToken };
+  }
+};
+
+// user logout service
+exports.logoutService = async (cookie) => {
+  if (!cookie?.refreshToken) {
+    return false;
+  } else {
+    const refreshToken = cookie?.refreshToken;
+    const user = await User.findOne({ refreshToken });
+    if (!user) {
+      throw new Error();
+    }
+    const logoutUser = await User.findOneAndUpdate(
+      { refreshToken },
+      {
+        refreshToken: "",
+      }
+    );
+    return logoutUser;
+  }
 };

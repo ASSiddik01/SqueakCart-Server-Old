@@ -7,6 +7,8 @@ const {
   updateUserService,
   blockUserService,
   unblockUserService,
+  refreshTokenService,
+  logoutService,
 } = require("../services/user.services");
 
 // Save API
@@ -43,6 +45,10 @@ exports.loginUser = async (req, res, next) => {
     // Save
     const reqData = req.body;
     const result = await loginUserService(reqData);
+    res.cookie("refreshToken", result.refreshToken, {
+      httpOnly: true,
+      maxAge: 168 * 60 * 60 * 1000,
+    });
     res.status(200).json({
       success: true,
       message: `User get successfully`,
@@ -52,6 +58,41 @@ exports.loginUser = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `User not found`,
+      error: error.message,
+    });
+  }
+};
+
+// user log out
+exports.logoutUser = async (req, res, next) => {
+  try {
+    const cookie = req.cookies;
+    const result = await logoutService(cookie);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: `Refresh token not found`,
+        data: result,
+      });
+    } else {
+      res.clearCookie("refreshToken", {
+        httpOnly: true,
+        secure: true,
+      });
+      res.status(200).json({
+        success: true,
+        message: `User logout successfully`,
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.clearCookie("refreshToken", {
+      httpOnly: true,
+      secure: true,
+    });
+    res.status(400).json({
+      success: false,
+      message: `User logout failed`,
       error: error.message,
     });
   }
@@ -203,6 +244,33 @@ exports.unblockUser = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `User unblocked failed`,
+      error: error.message,
+    });
+  }
+};
+
+// handle refresh token
+exports.refreshToken = async (req, res, next) => {
+  try {
+    const cookie = req.cookies;
+    const result = await refreshTokenService(cookie);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: `Refresh token not found`,
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: `Token update successfully`,
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Token refresh failed`,
       error: error.message,
     });
   }
