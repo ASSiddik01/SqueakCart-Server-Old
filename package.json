@@ -17,7 +17,8 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.11.1",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "slugify": "^1.6.6"
   },
   "author": "Abu Shama",
   "license": "ISC"
