@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const dataRoute = require("./routes/data.route");
 const userRoute = require("./routes/user.route");
 const productRoute = require("./routes/product.route");
+const blogRoute = require("./routes/blog.route");
 
 // Middleware
 app.use(express.json());
@@ -27,6 +28,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/data", dataRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/product", productRoute);
+app.use("/api/v1/blog", blogRoute);
 
 // Unknown API Handle
 app.all("*", (req, res) => {

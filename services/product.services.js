@@ -54,7 +54,8 @@ exports.getProductsService = async (reqData) => {
 exports.getProductService = async (id) => {
   const result = await Product.findByIdAndUpdate(
     { _id: id },
-    { $inc: { view: 1 } }
+    { $inc: { view: 1 } },
+    { new: true }
   );
   return result;
 };
