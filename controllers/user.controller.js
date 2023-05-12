@@ -340,7 +340,6 @@ exports.resetPassword = async (req, res, next) => {
   try {
     const { password } = req.body;
     const { token } = req.params;
-    console.log(password, token);
     const result = await resetPasswordService(token, password);
     if (!result) {
       res.status(404).json({
