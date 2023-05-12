@@ -9,6 +9,9 @@ const {
   unblockUserService,
   refreshTokenService,
   logoutService,
+  updatePasswordService,
+  forgetPasswordService,
+  resetPasswordService,
 } = require("../services/user.services");
 
 // Save API
@@ -271,6 +274,91 @@ exports.refreshToken = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `Token refresh failed`,
+      error: error.message,
+    });
+  }
+};
+
+// update password
+exports.updatePassword = async (req, res, next) => {
+  try {
+    const { _id } = req.user;
+    const { password } = req.body;
+    console.log(_id, password);
+    const result = await updatePasswordService(_id, password);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: `Refresh token not found`,
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: `Password update successfully`,
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Password update failed`,
+      error: error.message,
+    });
+  }
+};
+
+// reset password token
+exports.forgetPassword = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+    const result = await forgetPasswordService(email);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: `User not found`,
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: `Password reset token successfully`,
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Password reset token failed`,
+      error: error.message,
+    });
+  }
+};
+
+// reset password
+exports.resetPassword = async (req, res, next) => {
+  try {
+    const { password } = req.body;
+    const { token } = req.params;
+    console.log(password, token);
+    const result = await resetPasswordService(token, password);
+    if (!result) {
+      res.status(404).json({
+        success: false,
+        message: `Token exprire, Please try again later`,
+        data: result,
+      });
+    } else {
+      res.status(200).json({
+        success: true,
+        message: `Password reset successfully`,
+        data: result,
+      });
+    }
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Password reset failed`,
       error: error.message,
     });
   }

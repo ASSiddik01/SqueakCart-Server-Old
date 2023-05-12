@@ -1,1 +1,5 @@
 DB_URI="mongodb://127.0.0.1:27017/squeak-cart"
+
+mc91HDwYSz6EJuKl-tjD_w.1VBOodXJ6x3YpGV3tcWBsJkUu4prOPWnkTSfSCkXFoY
+
+fsqywokqrthwy

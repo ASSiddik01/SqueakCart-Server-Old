@@ -40,6 +40,30 @@ router
   .get(userControllers.logoutUser);
 
 router
+  .route("/password")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .patch(userMiddleware.authMiddleware, userControllers.updatePassword)
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .post(userControllers.forgetPassword);
+
+router
+  .route("/reset-password/:token")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .patch(userControllers.resetPassword);
+
+router
   .route("/")
   /**
    * @api {get} /
