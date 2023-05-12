@@ -1,26 +1,26 @@
-const blogCategory = require("../models/blogCategory.schema");
+const BlogCategory = require("../models/blogCategory.schema");
 
 // create blog category service
 exports.createBlogCategoryService = async (category) => {
-  const savedCategory = await blogCategory.create(category);
+  const savedCategory = await BlogCategory.create(category);
   return savedCategory;
 };
 
 // get blog categories service
 exports.getBlogCategoriesService = async () => {
-  const categories = await blogCategory.find();
+  const categories = await BlogCategory.find();
   return categories;
 };
 
 // get blog category service
 exports.getBlogCategoryService = async (id) => {
-  const category = await blogCategory.findById(id);
+  const category = await BlogCategory.findById(id);
   return category;
 };
 
 // update blog categories service
 exports.updateBlogCategoryService = async (id, reqData) => {
-  const updateCategory = await blogCategory.findByIdAndUpdate(id, reqData, {
+  const updateCategory = await BlogCategory.findByIdAndUpdate(id, reqData, {
     new: true,
   });
   return updateCategory;
@@ -28,6 +28,6 @@ exports.updateBlogCategoryService = async (id, reqData) => {
 
 // delete blog categories service
 exports.deleteBlogCategoryService = async (id) => {
-  const deleteCategory = await blogCategory.findByIdAndDelete(id);
+  const deleteCategory = await BlogCategory.findByIdAndDelete(id);
   return deleteCategory;
 };
