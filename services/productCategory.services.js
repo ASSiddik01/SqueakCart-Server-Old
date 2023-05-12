@@ -14,8 +14,8 @@ exports.getProductCategoriesService = async () => {
 
 // get product category service
 exports.getProductCategoryService = async (id) => {
-  const categories = await porductCategory.findById(id);
-  return categories;
+  const category = await porductCategory.findById(id);
+  return category;
 };
 
 // update product categories service
