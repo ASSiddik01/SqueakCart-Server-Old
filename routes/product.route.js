@@ -4,6 +4,15 @@ const productControllers = require("../controllers/product.controller");
 const userMiddleware = require("../middleware/userMiddleware");
 
 router
+  .route("/wishlist")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .patch(userMiddleware.authMiddleware, productControllers.addToWishList);
+
+router
   .route("/")
   /**
    * @api {post} /register

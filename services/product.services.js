@@ -1,4 +1,5 @@
 const Product = require("../models/product.schema");
+const User = require("../models/user.schema");
 const slugify = require("slugify");
 
 // save product service
@@ -80,4 +81,35 @@ exports.deleteProductService = async (id) => {
     }
   );
   return result;
+};
+
+// add to wishlist service
+exports.addToWishListService = async (id, productId) => {
+  const user = await User.findById(id);
+  const alreadyAdded = user.wishlist.find(
+    (id) => id.toString() === productId.toString()
+  );
+  if (alreadyAdded) {
+    let user = await User.findByIdAndUpdate(
+      id,
+      {
+        $pull: { wishlist: productId },
+      },
+      {
+        new: true,
+      }
+    );
+    return user;
+  } else {
+    let user = await User.findByIdAndUpdate(
+      id,
+      {
+        $push: { wishlist: productId },
+      },
+      {
+        new: true,
+      }
+    );
+    return user;
+  }
 };

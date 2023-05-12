@@ -4,6 +4,7 @@ const {
   getProductsService,
   updateProductService,
   deleteProductService,
+  addToWishListService,
 } = require("../services/product.services");
 
 exports.createProduct = async (req, res, next) => {
@@ -81,11 +82,30 @@ exports.updateProduct = async (req, res, next) => {
   }
 };
 
-// update product
+// delete product
 exports.deleteProduct = async (req, res, next) => {
   try {
     const { id } = req.params;
     const result = await deleteProductService(id);
+    res.status(200).json({
+      success: true,
+      message: `Product delete successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Product delete failed`,
+      error: error.message,
+    });
+  }
+};
+
+exports.addToWishList = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const { productId } = req.body;
+    const result = await addToWishListService(_id, productId);
     res.status(200).json({
       success: true,
       message: `Product delete successfully`,
