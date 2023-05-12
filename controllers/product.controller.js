@@ -108,13 +108,13 @@ exports.addToWishList = async (req, res) => {
     const result = await addToWishListService(_id, productId);
     res.status(200).json({
       success: true,
-      message: `Product delete successfully`,
+      message: `Product add to wishlist successfully`,
       data: result,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: `Product delete failed`,
+      message: `Product add to wishlist failed`,
       error: error.message,
     });
   }
