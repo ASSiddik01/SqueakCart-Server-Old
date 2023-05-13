@@ -64,6 +64,15 @@ router
   .get(authMiddleware, userControllers.getUserCart);
 
 router
+  .route("/applycoupon")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .post(authMiddleware, userControllers.applyCoupon);
+
+router
   .route("/logout")
   /**
    * @api {get} /

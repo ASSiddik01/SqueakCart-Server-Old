@@ -1,6 +1,7 @@
 const User = require("../models/user.schema");
 const Product = require("../models/product.schema");
 const Cart = require("../models/cart.schema");
+const Coupon = require("../models/coupon.schema");
 const sendEmail = require("../utils/emailSender");
 const { generateRefreshToken } = require("../utils/refreshToken");
 const { generateToken } = require("../utils/token");
@@ -904,4 +905,28 @@ exports.emptyCartService = async (id) => {
   const user = await User.findById(id);
   const cart = await Cart.findOneAndRemove({ orderby: user._id });
   return cart;
+};
+// apply coupon service
+exports.applyCouponService = async (id, coupon) => {
+  const validCoupon = await Coupon.findOne({ name: coupon });
+  if (validCoupon === null) {
+    throw new Error("Coupon Invalid");
+  }
+  const user = await User.findById(id);
+  let { products, cartTotal } = await Cart.findOne({
+    orderby: user._id,
+  }).populate("products.product");
+
+  let totalAfterDiscount = (
+    cartTotal -
+    (cartTotal * validCoupon.discount) / 100
+  ).toFixed(2);
+
+  const updateCart = await Cart.findOneAndUpdate(
+    { orderby: user._id },
+    { totalAfterDiscount },
+    { new: true }
+  );
+
+  return totalAfterDiscount;
 };

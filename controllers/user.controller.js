@@ -16,6 +16,7 @@ const {
   userCartService,
   getUserCartService,
   emptyCartService,
+  applyCouponService,
 } = require("../services/user.services");
 
 // Save API
@@ -439,6 +440,26 @@ exports.emptyCart = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `Cart empty failed`,
+      error: error.message,
+    });
+  }
+};
+
+// apply coupon
+exports.applyCoupon = async (req, res, next) => {
+  try {
+    const { _id } = req?.user;
+    const { coupon } = req?.body;
+    const result = await applyCouponService(_id, coupon);
+    res.status(200).json({
+      success: true,
+      message: `Coupon applied successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Coupon applied failed`,
       error: error.message,
     });
   }
