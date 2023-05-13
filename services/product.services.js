@@ -1,6 +1,7 @@
 const Product = require("../models/product.schema");
 const User = require("../models/user.schema");
 const slugify = require("slugify");
+const cloudInaryUploadImg = require("../utils/cloudinary");
 
 // save product service
 exports.createProductService = async (reqData) => {
@@ -169,4 +170,28 @@ exports.ratingService = async (id, star, comment, productId) => {
   );
 
   return ratedProduct;
+};
+
+// product image upload service
+exports.productImageUploadService = async (id, files) => {
+  const uploader = (path) => cloudInaryUploadImg(path, "images");
+  const urls = [];
+  for (const file of files) {
+    const { path } = file;
+    let newPath = await uploader(path);
+    urls.push(newPath);
+  }
+  const findProduct = await Product.findByIdAndUpdate(
+    id,
+    {
+      images: urls?.map((file) => {
+        return file;
+      }),
+    },
+    {
+      new: true,
+    }
+  );
+
+  return findProduct;
 };

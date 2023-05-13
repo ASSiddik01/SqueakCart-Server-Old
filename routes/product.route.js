@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const productControllers = require("../controllers/product.controller");
-const userMiddleware = require("../middleware/userMiddleware");
+const { authMiddleware, isAdmin } = require("../middleware/userMiddleware");
+const {
+  uploadFile,
+  productImageResize,
+} = require("../middleware/uploadImages");
 
 router
   .route("/wishlist")
@@ -10,7 +14,7 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(userMiddleware.authMiddleware, productControllers.addToWishList);
+  .patch(authMiddleware, productControllers.addToWishList);
 
 router
   .route("/rating")
@@ -19,7 +23,7 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(userMiddleware.authMiddleware, productControllers.rating);
+  .patch(authMiddleware, productControllers.rating);
 
 router
   .route("/")
@@ -28,17 +32,28 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .post(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    productControllers.createProduct
-  )
+  .post(authMiddleware, isAdmin, productControllers.createProduct)
   /**
    * @api {post} /register
    * @apiDescription save user
    * @apiPermission all
    */
   .get(productControllers.getProducts);
+
+router
+  .route("/upload/:id")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .patch(
+    authMiddleware,
+    isAdmin,
+    uploadFile.array("images", 10),
+    productImageResize,
+    productControllers.uploadImages
+  );
 
 router
   .route("/:id")
@@ -53,20 +68,12 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    productControllers.updateProduct
-  )
+  .patch(authMiddleware, isAdmin, productControllers.updateProduct)
   /**
    * @api {post} /register
    * @apiDescription save user
    * @apiPermission all
    */
-  .delete(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    productControllers.deleteProduct
-  );
+  .delete(authMiddleware, isAdmin, productControllers.deleteProduct);
 
 module.exports = router;

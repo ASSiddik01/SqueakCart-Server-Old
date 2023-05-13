@@ -6,6 +6,7 @@ const {
   deleteProductService,
   addToWishListService,
   ratingService,
+  productImageUploadService,
 } = require("../services/product.services");
 
 exports.createProduct = async (req, res, next) => {
@@ -128,6 +129,25 @@ exports.rating = async (req, res) => {
     const { _id } = req.user;
     const { star, productId, comment } = req.body;
     const result = await ratingService(_id, star, comment, productId);
+    res.status(200).json({
+      success: true,
+      message: `Product rated successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Product rated failed`,
+      error: error.message,
+    });
+  }
+};
+
+exports.uploadImages = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const files = req.files;
+    const result = await productImageUploadService(id, files);
     res.status(200).json({
       success: true,
       message: `Product rated successfully`,
