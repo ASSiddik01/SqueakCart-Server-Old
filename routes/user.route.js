@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const userControllers = require("../controllers/user.controller");
-const userMiddleware = require("../middleware/userMiddleware");
+const { authMiddleware, isAdmin } = require("../middleware/userMiddleware");
 
 router
   .route("/register")
@@ -31,6 +31,15 @@ router
   .get(userControllers.refreshToken);
 
 router
+  .route("/wishlist")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(authMiddleware, userControllers.getWishList);
+
+router
   .route("/logout")
   /**
    * @api {get} /
@@ -46,7 +55,7 @@ router
    * @apiDescription get all user
    * @apiPermission all
    */
-  .patch(userMiddleware.authMiddleware, userControllers.updatePassword)
+  .patch(authMiddleware, userControllers.updatePassword)
   /**
    * @api {get} /
    * @apiDescription get all user
@@ -79,11 +88,7 @@ router
    * @apiDescription get all user
    * @apiPermission all
    */
-  .get(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    userControllers.getUser
-  )
+  .get(authMiddleware, isAdmin, userControllers.getUser)
   /**
    * @api {get} /
    * @apiDescription get all user
@@ -104,11 +109,7 @@ router
    * @apiDescription get all user
    * @apiPermission all
    */
-  .patch(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    userControllers.blockUser
-  );
+  .patch(authMiddleware, isAdmin, userControllers.blockUser);
 
 router
   .route("/unblock-user/:id")
@@ -117,10 +118,6 @@ router
    * @apiDescription get all user
    * @apiPermission all
    */
-  .patch(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    userControllers.unblockUser
-  );
+  .patch(authMiddleware, isAdmin, userControllers.unblockUser);
 
 module.exports = router;

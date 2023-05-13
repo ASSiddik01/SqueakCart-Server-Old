@@ -12,6 +12,7 @@ const {
   updatePasswordService,
   forgetPasswordService,
   resetPasswordService,
+  getWishListService,
 } = require("../services/user.services");
 
 // Save API
@@ -358,6 +359,25 @@ exports.resetPassword = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `Password reset failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get wish list
+exports.getWishList = async (req, res, next) => {
+  try {
+    const { _id } = req?.user;
+    const result = await getWishListService(_id);
+    res.status(200).json({
+      success: true,
+      message: `Wish list get successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Wish list get failed`,
       error: error.message,
     });
   }

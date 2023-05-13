@@ -853,3 +853,9 @@ exports.logoutService = async (cookie) => {
     return logoutUser;
   }
 };
+
+// get wish list
+exports.getWishListService = async (id) => {
+  const wishlist = await User.findById(id).populate("wishlist");
+  return wishlist;
+};
