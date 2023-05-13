@@ -13,6 +13,9 @@ const {
   forgetPasswordService,
   resetPasswordService,
   getWishListService,
+  userCartService,
+  getUserCartService,
+  emptyCartService,
 } = require("../services/user.services");
 
 // Save API
@@ -378,6 +381,64 @@ exports.getWishList = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `Wish list get failed`,
+      error: error.message,
+    });
+  }
+};
+
+// user cart
+exports.userCart = async (req, res, next) => {
+  try {
+    const { _id } = req?.user;
+    const { cart } = req.body;
+    const result = await userCartService(_id, cart);
+    res.status(200).json({
+      success: true,
+      message: `Cart save successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Cart save failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get user cart
+exports.getUserCart = async (req, res, next) => {
+  try {
+    const { _id } = req?.user;
+    const result = await getUserCartService(_id);
+    res.status(200).json({
+      success: true,
+      message: `Cart get successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Cart get failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get user cart
+exports.emptyCart = async (req, res, next) => {
+  try {
+    const { _id } = req?.user;
+    const result = await emptyCartService(_id);
+    res.status(200).json({
+      success: true,
+      message: `Cart empty successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Cart empty failed`,
       error: error.message,
     });
   }

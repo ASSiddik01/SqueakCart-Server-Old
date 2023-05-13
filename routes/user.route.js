@@ -40,6 +40,30 @@ router
   .get(authMiddleware, userControllers.getWishList);
 
 router
+  .route("/empty-cart")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .delete(authMiddleware, userControllers.emptyCart);
+
+router
+  .route("/cart")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .post(authMiddleware, userControllers.userCart)
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(authMiddleware, userControllers.getUserCart);
+
+router
   .route("/logout")
   /**
    * @api {get} /

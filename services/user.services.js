@@ -1,4 +1,6 @@
 const User = require("../models/user.schema");
+const Product = require("../models/product.schema");
+const Cart = require("../models/cart.schema");
 const sendEmail = require("../utils/emailSender");
 const { generateRefreshToken } = require("../utils/refreshToken");
 const { generateToken } = require("../utils/token");
@@ -858,4 +860,48 @@ exports.logoutService = async (cookie) => {
 exports.getWishListService = async (id) => {
   const wishlist = await User.findById(id).populate("wishlist");
   return wishlist;
+};
+
+// user cart service
+exports.userCartService = async (id, cart) => {
+  let products = [];
+  const user = await User.findById(id);
+  const alreadyAdded = await Cart.findOne({ orderby: user._id });
+  if (alreadyAdded) {
+    alreadyAdded.remove();
+  }
+  for (let i = 0; i < cart.length; i++) {
+    let item = {};
+    item.product = cart[i]._id;
+    item.count = cart[i].count;
+    item.color = cart[i].color;
+    let getPrice = await Product.findById(cart[i]._id).select("price").exec();
+    item.price = getPrice.price;
+    products.push(item);
+  }
+  let cartTotal = 0;
+  for (let i = 0; i < products.length; i++) {
+    cartTotal = cartTotal + products[i].price * products[i].count;
+  }
+
+  let newcart = await new Cart({
+    products,
+    cartTotal,
+    orderby: user?._id,
+  }).save();
+
+  return newcart;
+};
+
+// get user cart service
+exports.getUserCartService = async (id) => {
+  const cart = await Cart.findOne({ orderby: id }).populate("products.product");
+  return cart;
+};
+
+// empty cart service
+exports.emptyCartService = async (id) => {
+  const user = await User.findById(id);
+  const cart = await Cart.findOneAndRemove({ orderby: user._id });
+  return cart;
 };
