@@ -113,3 +113,60 @@ exports.addToWishListService = async (id, productId) => {
     return user;
   }
 };
+
+// rating service
+exports.ratingService = async (id, star, comment, productId) => {
+  const product = await Product.findById(productId);
+  let aleardyRated = product.ratings.find(
+    (userId) => userId.postedby.toString() === id.toString()
+  );
+  // individuals rating handle
+  if (aleardyRated) {
+    const updateRating = await Product.updateOne(
+      {
+        ratings: { $elemMatch: aleardyRated },
+      },
+      {
+        $set: { "ratings.$.star": star, "ratings.$.comment": comment },
+      },
+      {
+        new: true,
+      }
+    );
+  } else {
+    const rateProduct = await Product.findByIdAndUpdate(
+      productId,
+      {
+        $push: {
+          ratings: {
+            star: star,
+            comment: comment,
+            postedby: id,
+          },
+        },
+      },
+      {
+        new: true,
+      }
+    );
+  }
+
+  // handle total rating
+  const getAllRatings = await Product.findById(productId);
+  let totalRatting = getAllRatings.ratings.length;
+  let ratingSum = getAllRatings.ratings
+    .map((item) => item.star)
+    .reduce((previous, current) => previous + current, 0);
+  let actualRating = Math.round(ratingSum / totalRatting);
+  let ratedProduct = await Product.findByIdAndUpdate(
+    productId,
+    {
+      totalrating: actualRating,
+    },
+    {
+      new: true,
+    }
+  );
+
+  return ratedProduct;
+};

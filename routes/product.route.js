@@ -13,6 +13,15 @@ router
   .patch(userMiddleware.authMiddleware, productControllers.addToWishList);
 
 router
+  .route("/rating")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .patch(userMiddleware.authMiddleware, productControllers.rating);
+
+router
   .route("/")
   /**
    * @api {post} /register

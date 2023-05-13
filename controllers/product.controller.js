@@ -5,6 +5,7 @@ const {
   updateProductService,
   deleteProductService,
   addToWishListService,
+  ratingService,
 } = require("../services/product.services");
 
 exports.createProduct = async (req, res, next) => {
@@ -101,6 +102,7 @@ exports.deleteProduct = async (req, res, next) => {
   }
 };
 
+// add to wishlist
 exports.addToWishList = async (req, res) => {
   try {
     const { _id } = req.user;
@@ -115,6 +117,26 @@ exports.addToWishList = async (req, res) => {
     res.status(400).json({
       success: false,
       message: `Product add to wishlist failed`,
+      error: error.message,
+    });
+  }
+};
+
+// rating
+exports.rating = async (req, res) => {
+  try {
+    const { _id } = req.user;
+    const { star, productId, comment } = req.body;
+    const result = await ratingService(_id, star, comment, productId);
+    res.status(200).json({
+      success: true,
+      message: `Product rated successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Product rated failed`,
       error: error.message,
     });
   }
