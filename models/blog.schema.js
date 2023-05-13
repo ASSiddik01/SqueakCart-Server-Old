@@ -40,8 +40,7 @@ var blogSchema = new mongoose.Schema(
       },
     ],
     images: {
-      type: String,
-      default: "https://lpm.uma.ac.id/wp-content/uploads/2021/01/blogging.jpg",
+      type: Array,
     },
     author: {
       type: String,

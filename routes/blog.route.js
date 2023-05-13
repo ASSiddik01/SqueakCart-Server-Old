@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const blogControllers = require("../controllers/blog.controller");
-const userMiddleware = require("../middleware/userMiddleware");
+const { authMiddleware, isAdmin } = require("../middleware/userMiddleware");
+const { uploadFile, blogImageResize } = require("../middleware/uploadImages");
 
 router
   .route("/")
@@ -10,11 +11,7 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .post(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    blogControllers.createBlog
-  )
+  .post(authMiddleware, isAdmin, blogControllers.createBlog)
   /**
    * @api {post} /register
    * @apiDescription save user
@@ -23,13 +20,28 @@ router
   .get(blogControllers.getBlogs);
 
 router
+  .route("/upload/:id")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .patch(
+    authMiddleware,
+    isAdmin,
+    uploadFile.array("images", 5),
+    blogImageResize,
+    blogControllers.uploadImages
+  );
+
+router
   .route("/likes")
   /**
    * @api {post} /register
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(userMiddleware.authMiddleware, blogControllers.likeBlog);
+  .patch(authMiddleware, blogControllers.likeBlog);
 
 router
   .route("/dislikes")
@@ -38,7 +50,7 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(userMiddleware.authMiddleware, blogControllers.dislikeBlog);
+  .patch(authMiddleware, blogControllers.dislikeBlog);
 
 router
   .route("/:id")
@@ -53,20 +65,12 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    blogControllers.updateBlog
-  )
+  .patch(authMiddleware, isAdmin, blogControllers.updateBlog)
   /**
    * @api {post} /register
    * @apiDescription save user
    * @apiPermission all
    */
-  .delete(
-    userMiddleware.authMiddleware,
-    userMiddleware.isAdmin,
-    blogControllers.deleteBlog
-  );
+  .delete(authMiddleware, isAdmin, blogControllers.deleteBlog);
 
 module.exports = router;

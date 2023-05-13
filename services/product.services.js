@@ -2,6 +2,7 @@ const Product = require("../models/product.schema");
 const User = require("../models/user.schema");
 const slugify = require("slugify");
 const cloudInaryUploadImg = require("../utils/cloudinary");
+const fs = require("fs");
 
 // save product service
 exports.createProductService = async (reqData) => {
@@ -180,6 +181,7 @@ exports.productImageUploadService = async (id, files) => {
     const { path } = file;
     let newPath = await uploader(path);
     urls.push(newPath);
+    fs.unlinkSync(path);
   }
   const findProduct = await Product.findByIdAndUpdate(
     id,

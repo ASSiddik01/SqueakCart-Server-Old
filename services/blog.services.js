@@ -1,5 +1,7 @@
 const Blog = require("../models/blog.schema");
 const User = require("../models/user.schema");
+const cloudInaryUploadImg = require("../utils/cloudinary");
+const fs = require("fs");
 
 // create blog
 exports.createBlogService = async (blog) => {
@@ -132,4 +134,29 @@ exports.dislikeBlogService = async (blogId, loginUserId) => {
     );
     return blog;
   }
+};
+
+// product image upload service
+exports.blogImageUploadService = async (id, files) => {
+  const uploader = (path) => cloudInaryUploadImg(path, "images");
+  const urls = [];
+  for (const file of files) {
+    const { path } = file;
+    let newPath = await uploader(path);
+    urls.push(newPath);
+    fs.unlinkSync(path);
+  }
+  const updateBlog = await Blog.findByIdAndUpdate(
+    id,
+    {
+      images: urls?.map((file) => {
+        return file;
+      }),
+    },
+    {
+      new: true,
+    }
+  );
+
+  return updateBlog;
 };

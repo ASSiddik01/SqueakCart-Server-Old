@@ -143,6 +143,7 @@ exports.rating = async (req, res) => {
   }
 };
 
+// upload product image
 exports.uploadImages = async (req, res) => {
   try {
     const { id } = req.params;
