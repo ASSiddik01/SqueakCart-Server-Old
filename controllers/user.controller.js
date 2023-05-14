@@ -17,6 +17,11 @@ const {
   getUserCartService,
   emptyCartService,
   applyCouponService,
+  createOrderService,
+  getOrdersService,
+  updateOrdersStatusService,
+  getAllOrdersService,
+  getOrderByUserIdService,
 } = require("../services/user.services");
 
 // Save API
@@ -460,6 +465,109 @@ exports.applyCoupon = async (req, res, next) => {
     res.status(400).json({
       success: false,
       message: `Coupon applied failed`,
+      error: error.message,
+    });
+  }
+};
+
+// create order
+exports.createOrder = async (req, res) => {
+  try {
+    const { _id } = req?.user;
+    const { COD, couponApplied } = req?.body;
+    if (!COD) {
+      return res.status(400).json({
+        success: false,
+        message: `Create cash order failed`,
+        data: false,
+      });
+    }
+    const result = await createOrderService(_id, couponApplied);
+    res.status(200).json({
+      success: true,
+      message: `Create order successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Create order failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get user orders
+exports.getOrders = async (req, res) => {
+  try {
+    const { _id } = req?.user;
+    const result = await getOrdersService(_id);
+    res.status(200).json({
+      success: true,
+      message: `Get orders successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Get orders failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get user orders status
+exports.updateOrdersStatus = async (req, res) => {
+  try {
+    const { id } = req?.params;
+    const { status } = req?.body;
+    const result = await updateOrdersStatusService(id, status);
+    res.status(200).json({
+      success: true,
+      message: `Update order status successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Update order status failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get all orders
+exports.getAllOrders = async (req, res) => {
+  try {
+    const result = await getAllOrdersService();
+    res.status(200).json({
+      success: true,
+      message: `Get all orders successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Get all orders failed`,
+      error: error.message,
+    });
+  }
+};
+
+// get order by user id
+exports.getOrderByUserId = async (req, res) => {
+  const { _id } = req.user;
+  try {
+    const result = await getOrderByUserIdService(_id);
+    res.status(200).json({
+      success: true,
+      message: `Get all orders successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Get all orders failed`,
       error: error.message,
     });
   }

@@ -73,6 +73,51 @@ router
   .post(authMiddleware, userControllers.applyCoupon);
 
 router
+  .route("/cash-order")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .post(authMiddleware, userControllers.createOrder);
+
+router
+  .route("/all-orders")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(authMiddleware, userControllers.getAllOrders);
+
+router
+  .route("/get-order")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(authMiddleware, userControllers.getOrders);
+
+router
+  .route("/order-by-id")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .get(authMiddleware, userControllers.getOrderByUserId);
+
+router
+  .route("/update-order/:id")
+  /**
+   * @api {get} /
+   * @apiDescription get all user
+   * @apiPermission all
+   */
+  .patch(authMiddleware, userControllers.updateOrdersStatus);
+
+router
   .route("/logout")
   /**
    * @api {get} /

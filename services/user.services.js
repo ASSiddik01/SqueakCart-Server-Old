@@ -2,11 +2,13 @@ const User = require("../models/user.schema");
 const Product = require("../models/product.schema");
 const Cart = require("../models/cart.schema");
 const Coupon = require("../models/coupon.schema");
+const Order = require("../models/order.schema");
 const sendEmail = require("../utils/emailSender");
 const { generateRefreshToken } = require("../utils/refreshToken");
 const { generateToken } = require("../utils/token");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
+const uniqid = require("uniqid");
 
 // Save User Service
 exports.saveUserService = async (reqData) => {
@@ -929,4 +931,81 @@ exports.applyCouponService = async (id, coupon) => {
   );
 
   return totalAfterDiscount;
+};
+
+// create order service
+exports.createOrderService = async (id, couponApplied) => {
+  const user = await User.findById(id);
+  let userCart = await Cart.findOne({ orderby: user._id });
+  let finalAmout = 0;
+  if (couponApplied && userCart.totalAfterDiscount) {
+    finalAmout = userCart.totalAfterDiscount;
+  } else {
+    finalAmout = userCart.cartTotal;
+  }
+  let newOrder = await new Order({
+    products: userCart.products,
+    paymentIntent: {
+      id: uniqid(),
+      method: "COD",
+      amount: finalAmout,
+      status: "Cash on Delivery",
+      created: Date.now(),
+      currency: "usd",
+    },
+    orderby: user._id,
+    orderStatus: "Cash on Delivery",
+  }).save();
+
+  let update = userCart.products.map((item) => {
+    return {
+      updateOne: {
+        filter: { _id: item.product._id },
+        update: { $inc: { quantity: -item.count, sold: +item.count } },
+      },
+    };
+  });
+
+  const updated = await Product.bulkWrite(update, {});
+  return updated;
+};
+
+// get user orders service
+exports.getOrdersService = async (id) => {
+  const userOrders = await Order.findOne({ orderby: id })
+    .populate("products.product")
+    .exec();
+  return userOrders;
+};
+
+// update user orders status service
+exports.updateOrdersStatusService = async (id, status) => {
+  console.log(id, status);
+  const updateOrdersStatus = await Order.findByIdAndUpdate(
+    id,
+    {
+      orderStatus: status,
+      paymentIntent: {
+        status: status,
+      },
+    },
+    {
+      new: true,
+    }
+  );
+  return updateOrdersStatus;
+};
+
+// get all orders
+exports.getAllOrdersService = async () => {
+  const userOrders = await Order.find().populate("products.product").exec();
+  return userOrders;
+};
+
+// get all orders
+exports.getOrderByUserIdService = async (id) => {
+  const userOrders = await Order.findOne({ orderby: id })
+    .populate("products.product")
+    .exec();
+  return userOrders;
 };
