@@ -11,6 +11,7 @@ const productCategoryRoute = require("./routes/productCategory.route");
 const blogCategoryRoute = require("./routes/blogCategory.route");
 const brandRoute = require("./routes/brand.route");
 const couponRoute = require("./routes/coupon.route");
+const colorRoute = require("./routes/color.route");
 
 // Middleware
 app.use(express.json());
@@ -37,6 +38,7 @@ app.use("/api/v1/product-category", productCategoryRoute);
 app.use("/api/v1/blog-category", blogCategoryRoute);
 app.use("/api/v1/brand", brandRoute);
 app.use("/api/v1/coupon", couponRoute);
+app.use("/api/v1/color", colorRoute);
 
 // Unknown API Handle
 app.all("*", (req, res) => {

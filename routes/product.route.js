@@ -41,7 +41,7 @@ router
   .get(productControllers.getProducts);
 
 router
-  .route("/upload/:id")
+  .route("/upload-img")
   /**
    * @api {post} /register
    * @apiDescription save user
@@ -53,6 +53,21 @@ router
     uploadFile.array("images", 10),
     productImageResize,
     productControllers.uploadImages
+  );
+
+router
+  .route("/delete-img/:id")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .delete(
+    authMiddleware,
+    isAdmin,
+    uploadFile.array("images", 10),
+    productImageResize,
+    productControllers.deleteImages
   );
 
 router

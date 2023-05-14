@@ -1,7 +1,10 @@
 const Product = require("../models/product.schema");
 const User = require("../models/user.schema");
 const slugify = require("slugify");
-const cloudInaryUploadImg = require("../utils/cloudinary");
+const {
+  cloudInaryUploadImg,
+  cloudInaryDeleteImg,
+} = require("../utils/cloudinary");
 const fs = require("fs");
 
 // save product service
@@ -174,7 +177,7 @@ exports.ratingService = async (id, star, comment, productId) => {
 };
 
 // product image upload service
-exports.productImageUploadService = async (id, files) => {
+exports.productImageUploadService = async (files) => {
   const uploader = (path) => cloudInaryUploadImg(path, "images");
   const urls = [];
   for (const file of files) {
@@ -183,17 +186,28 @@ exports.productImageUploadService = async (id, files) => {
     urls.push(newPath);
     fs.unlinkSync(path);
   }
-  const findProduct = await Product.findByIdAndUpdate(
-    id,
-    {
-      images: urls?.map((file) => {
-        return file;
-      }),
-    },
-    {
-      new: true,
-    }
-  );
 
-  return findProduct;
+  const images = urls?.map((file) => {
+    return file;
+  });
+
+  // const findProduct = await Product.findByIdAndUpdate(
+  //   id,
+  //   {
+  //     images: urls?.map((file) => {
+  //       return file;
+  //     }),
+  //   },
+  //   {
+  //     new: true,
+  //   }
+  // );
+
+  return images;
+};
+
+// product image upload service
+exports.productImageDeleteService = async (id, files) => {
+  const deleted = await cloudInaryDeleteImg(id, "images");
+  return deleted;
 };

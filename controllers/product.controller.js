@@ -7,6 +7,7 @@ const {
   addToWishListService,
   ratingService,
   productImageUploadService,
+  productImageDeleteService,
 } = require("../services/product.services");
 
 exports.createProduct = async (req, res, next) => {
@@ -146,18 +147,37 @@ exports.rating = async (req, res) => {
 // upload product image
 exports.uploadImages = async (req, res) => {
   try {
-    const { id } = req.params;
     const files = req.files;
-    const result = await productImageUploadService(id, files);
+    const result = await productImageUploadService(files);
     res.status(200).json({
       success: true,
-      message: `Product rated successfully`,
+      message: `Product image upload successfully`,
       data: result,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: `Product rated failed`,
+      message: `Product image upload failed`,
+      error: error.message,
+    });
+  }
+};
+
+// delete product image
+exports.deleteImages = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const files = req.files;
+    const result = await productImageDeleteService(id, files);
+    res.status(200).json({
+      success: true,
+      message: `Product images delete successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Product images delete failed`,
       error: error.message,
     });
   }
