@@ -1,0 +1,97 @@
+[{
+  "_id": {
+    "$oid": "645dbd4bf947ce5c9e9f45e4"
+  },
+  "title": "blog Title 1",
+  "description": "blog description",
+  "category": "blog category",
+  "numViews": 0,
+  "isLiked": false,
+  "isDisliked": true,
+  "likes": [],
+  "dislikes": [
+    {
+      "$oid": "645da0e2681543de81034588"
+    }
+  ],
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/delu47omx/image/upload/v1683974364/nplrgqzstxigb5hmla1z.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/delu47omx/image/upload/v1683974366/xz1t6ryh4mdszkmszvdo.jpg"
+    }
+  ],
+  "author": "Admin",
+  "createdAt": {
+    "$date": "2023-05-12T04:15:07.781Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T10:39:26.894Z"
+  },
+  "__v": 0,
+  "views": 15
+},{
+  "_id": {
+    "$oid": "645dc033a21279503bb93519"
+  },
+  "title": "blog Title 2",
+  "description": "blog description 2",
+  "category": "blog category 2",
+  "numViews": 0,
+  "isLiked": false,
+  "isDisliked": false,
+  "likes": [],
+  "dislikes": [],
+  "images": "https://lpm.uma.ac.id/wp-content/uploads/2021/01/blogging.jpg",
+  "author": "Admin",
+  "createdAt": {
+    "$date": "2023-05-12T04:27:31.466Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T04:27:31.466Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645dc039a21279503bb9351c"
+  },
+  "title": "blog Title 4",
+  "description": "blog description 4",
+  "category": "blog category 4",
+  "numViews": 0,
+  "isLiked": false,
+  "isDisliked": false,
+  "likes": [],
+  "dislikes": [],
+  "images": "https://lpm.uma.ac.id/wp-content/uploads/2021/01/blogging.jpg",
+  "author": "Admin",
+  "createdAt": {
+    "$date": "2023-05-12T04:27:37.125Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T04:27:37.125Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645dc042a21279503bb9351f"
+  },
+  "title": "blog Title 3",
+  "description": "blog description 3",
+  "category": "blog category 3",
+  "numViews": 0,
+  "isLiked": false,
+  "isDisliked": false,
+  "likes": [],
+  "dislikes": [],
+  "images": "https://lpm.uma.ac.id/wp-content/uploads/2021/01/blogging.jpg",
+  "author": "Admin",
+  "createdAt": {
+    "$date": "2023-05-12T04:27:46.613Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T04:27:46.613Z"
+  },
+  "__v": 0
+}]

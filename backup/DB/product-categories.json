@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "645e499a87ce7d1fe089efd1"
+  },
+  "title": "headphones",
+  "createdAt": {
+    "$date": "2023-05-12T14:13:46.533Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:39:17.078Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e49a187ce7d1fe089efd4"
+  },
+  "title": "watch",
+  "createdAt": {
+    "$date": "2023-05-12T14:13:53.701Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:13:53.701Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e49a687ce7d1fe089efd7"
+  },
+  "title": "phone",
+  "createdAt": {
+    "$date": "2023-05-12T14:13:58.269Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T14:13:58.269Z"
+  },
+  "__v": 0
+}]

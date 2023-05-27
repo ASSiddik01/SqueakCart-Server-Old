@@ -1,0 +1,654 @@
+[{
+  "_id": {
+    "$oid": "645c7a23097d733a11b5b8bb"
+  },
+  "title": "Lenovo X240",
+  "slug": "lenovo-x240",
+  "description": "Ultra slim",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": -3,
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/delu47omx/image/upload/v1683972666/ssqt9jxvru0dc23fb2az.jpg"
+    },
+    {
+      "url": "https://res.cloudinary.com/delu47omx/image/upload/v1683972669/zjjlpjmmlqabr6v2qdcu.jpg"
+    }
+  ],
+  "color": "grey",
+  "brand": "lenovo",
+  "sold": 26,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:16:19.403Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T18:00:14.894Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7a33097d733a11b5b8be"
+  },
+  "title": "Lenovo X250",
+  "slug": "lenovo-x250",
+  "description": "Ultra slim",
+  "price": 55500,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": "grey",
+  "brand": "lenovo",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:16:35.181Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:16:35.181Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7a44097d733a11b5b8c1"
+  },
+  "title": "Lenovo X260",
+  "slug": "lenovo-x260",
+  "description": "Ultra slim",
+  "price": 57000,
+  "category": "laptop",
+  "quantity": 20,
+  "images": [],
+  "color": "black",
+  "brand": "lenovo",
+  "sold": 0,
+  "status": "available",
+  "ratings": [
+    {
+      "star": 4,
+      "postedby": {
+        "$oid": "645da0e2681543de81034588"
+      },
+      "_id": {
+        "$oid": "645f0fbb3a64516007933a1e"
+      }
+    },
+    {
+      "star": 5,
+      "postedby": {
+        "$oid": "645a8abbe543a19cbb0e9e7f"
+      },
+      "_id": {
+        "$oid": "645f151e9658b90b79ee0818"
+      },
+      "comment": "awasome"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-05-11T05:16:52.023Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T04:48:25.778Z"
+  },
+  "view": 23,
+  "__v": 0,
+  "totalrating": 5
+},{
+  "_id": {
+    "$oid": "645c7a78097d733a11b5b8c4"
+  },
+  "title": "Lenovo Neck Band C34",
+  "slug": "lenovo-neck-band-c34",
+  "description": "Best headphone",
+  "price": 1200,
+  "category": "headphone",
+  "quantity": -13,
+  "images": [],
+  "color": "black",
+  "brand": "lenovo",
+  "sold": 26,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:17:44.153Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T18:00:14.894Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7a9b097d733a11b5b8c7"
+  },
+  "title": "Lenovo AirBud P67",
+  "slug": "lenovo-airbud-p67",
+  "description": "Best headphone",
+  "price": 1600,
+  "category": "headphone",
+  "quantity": 5,
+  "images": [],
+  "color": "black",
+  "brand": "lenovo",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:18:19.722Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:18:19.722Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7ad5097d733a11b5b8ca"
+  },
+  "title": "Apple AirPod",
+  "slug": "apple-airpod",
+  "description": "Best headphone",
+  "price": 12000,
+  "category": "headphone",
+  "quantity": 1,
+  "images": [],
+  "color": "white",
+  "brand": "apple",
+  "sold": 13,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:19:17.370Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T18:00:14.894Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7ae5097d733a11b5b8cd"
+  },
+  "title": "Apple AirPod 2",
+  "slug": "apple-airpod-2",
+  "description": "Best headphone",
+  "price": 16000,
+  "category": "headphone",
+  "quantity": 20,
+  "images": [],
+  "color": "white",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:19:33.268Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:19:33.268Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7bf8097d733a11b5b8d0"
+  },
+  "title": "Apple Watch Series 2",
+  "slug": "apple-watch-series-2",
+  "description": "Best watch",
+  "price": 29000,
+  "category": "watch",
+  "quantity": 20,
+  "images": [],
+  "color": "gray",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:24:08.524Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:24:08.524Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7c12097d733a11b5b8d3"
+  },
+  "title": "Apple Watch Series 4",
+  "slug": "apple-watch-series-4",
+  "description": "Best watch",
+  "price": 36000,
+  "category": "watch",
+  "quantity": 25,
+  "images": [],
+  "color": "silver",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:24:34.501Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:24:34.501Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7c25097d733a11b5b8d6"
+  },
+  "title": "Apple Watch Series 3",
+  "slug": "apple-watch-series-3",
+  "description": "Best watch",
+  "price": 31000,
+  "category": "watch",
+  "quantity": 15,
+  "images": [],
+  "color": "black",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:24:53.773Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:24:53.773Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7c60097d733a11b5b8d9"
+  },
+  "title": "Mi Band 3",
+  "slug": "mi-band-3",
+  "description": "Best Band",
+  "price": 1500,
+  "category": "watch",
+  "quantity": 30,
+  "images": [],
+  "color": "black",
+  "brand": "xaomi",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:25:52.863Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:25:52.863Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7c76097d733a11b5b8dc"
+  },
+  "title": "Mi Band 4",
+  "slug": "mi-band-4",
+  "description": "Best Band",
+  "price": 1800,
+  "category": "watch",
+  "quantity": 30,
+  "images": [],
+  "color": "black",
+  "brand": "xaomi",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:26:14.587Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:26:14.587Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7cb7097d733a11b5b8df"
+  },
+  "title": "MacBook Pro M1",
+  "slug": "macbook-pro-m1",
+  "description": "Best laptop",
+  "price": 98000,
+  "category": "laptop",
+  "quantity": 15,
+  "images": [],
+  "color": "silver",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:27:19.449Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:27:19.449Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7cc2097d733a11b5b8e2"
+  },
+  "title": "MacBook Pro M2",
+  "slug": "macbook-pro-m2",
+  "description": "Best laptop",
+  "price": 120000,
+  "category": "laptop",
+  "quantity": 15,
+  "images": [],
+  "color": "silver",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:27:30.385Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:27:30.385Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7ce1097d733a11b5b8e5"
+  },
+  "title": "MacBook Pro M1",
+  "slug": "macbook-pro-m1",
+  "description": "Best laptop",
+  "price": 96000,
+  "category": "laptop",
+  "quantity": 17,
+  "images": [],
+  "color": "gray",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:28:01.844Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:28:01.844Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7cef097d733a11b5b8e8"
+  },
+  "title": "MacBook Pro M2",
+  "slug": "macbook-pro-m2",
+  "description": "Best laptop",
+  "price": 112000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": "gray",
+  "brand": "apple",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:28:15.543Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:28:15.543Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7d20097d733a11b5b8eb"
+  },
+  "title": "HP Probook G6",
+  "slug": "hp-probook-g6",
+  "description": "Best laptop",
+  "price": 65000,
+  "category": "laptop",
+  "quantity": 13,
+  "images": [],
+  "color": "silver",
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:29:04.057Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:29:04.057Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7d2f097d733a11b5b8ee"
+  },
+  "title": "HP Probook G7",
+  "slug": "hp-probook-g7",
+  "description": "Best laptop",
+  "price": 67000,
+  "category": "laptop",
+  "quantity": 13,
+  "images": [],
+  "color": "gray",
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:29:19.490Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:29:19.490Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7d5e097d733a11b5b8f1"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 56000,
+  "category": "laptop",
+  "quantity": 13,
+  "images": [],
+  "color": "gray",
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:30:06.495Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:30:06.495Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645c7d93097d733a11b5b8f4"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": "coffee",
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-11T05:30:59.016Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-11T05:30:59.016Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6461104ca56e9f590a068514"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": [
+    "64610f4136acc3495afb4bc2",
+    "64610f4e9de59050fbc9eeff"
+  ],
+  "tags": [],
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "totalrating": 0,
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-14T16:46:04.606Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T16:46:04.606Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6461104ca56e9f590a068517"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": [
+    "64610f4136acc3495afb4bc2",
+    "64610f4e9de59050fbc9eeff"
+  ],
+  "tags": [],
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "totalrating": 0,
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-14T16:46:04.832Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T16:46:04.832Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64611051a56e9f590a06851a"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": [
+    "64610f4136acc3495afb4bc2",
+    "64610f4e9de59050fbc9eeff"
+  ],
+  "tags": [],
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "totalrating": 0,
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-14T16:46:09.186Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T16:46:09.186Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64611052a56e9f590a06851d"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": [
+    "64610f4136acc3495afb4bc2",
+    "64610f4e9de59050fbc9eeff"
+  ],
+  "tags": [],
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "totalrating": 0,
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-14T16:46:10.442Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T16:46:10.442Z"
+  },
+  "view": 0,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64611063a56e9f590a068520"
+  },
+  "title": "HP Elitbook 8470P",
+  "slug": "hp-elitbook-8470p",
+  "description": "Best laptop",
+  "price": 55000,
+  "category": "laptop",
+  "quantity": 23,
+  "images": [],
+  "color": [
+    "64610f4136acc3495afb4bc2",
+    "64610f4e9de59050fbc9eeff"
+  ],
+  "tags": [],
+  "brand": "hp",
+  "sold": 0,
+  "status": "available",
+  "totalrating": 0,
+  "ratings": [],
+  "createdAt": {
+    "$date": "2023-05-14T16:46:27.534Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T16:46:27.534Z"
+  },
+  "view": 0,
+  "__v": 0
+}]

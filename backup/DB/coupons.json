@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "645f1db7d1b535e6b51570ec"
+  },
+  "name": "EID-UL-AZAH",
+  "expiry": {
+    "$date": "2023-05-13T05:14:01.000Z"
+  },
+  "discount": 10,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645f1fcdf3728948bef57e5a"
+  },
+  "name": "SSIT",
+  "expiry": {
+    "$date": "2023-05-13T05:14:01.000Z"
+  },
+  "discount": 10,
+  "__v": 0
+}]

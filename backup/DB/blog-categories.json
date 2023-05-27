@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "645e56612fc49132725a8b71"
+  },
+  "title": "daily tips",
+  "createdAt": {
+    "$date": "2023-05-12T15:08:17.052Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:08:17.052Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e566c2fc49132725a8b74"
+  },
+  "title": "next offer",
+  "createdAt": {
+    "$date": "2023-05-12T15:08:28.017Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:08:28.017Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5c4be5ad6fab7f096e7e"
+  },
+  "title": "apple",
+  "createdAt": {
+    "$date": "2023-05-12T15:33:31.941Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:33:31.941Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5c51e5ad6fab7f096e81"
+  },
+  "title": "lenovo",
+  "createdAt": {
+    "$date": "2023-05-12T15:33:37.228Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:33:37.228Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5c55e5ad6fab7f096e84"
+  },
+  "title": "hp",
+  "createdAt": {
+    "$date": "2023-05-12T15:33:41.436Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:33:41.436Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645e5c5fe5ad6fab7f096e87"
+  },
+  "title": "xaomi",
+  "createdAt": {
+    "$date": "2023-05-12T15:33:51.043Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-12T15:33:51.043Z"
+  },
+  "__v": 0
+}]

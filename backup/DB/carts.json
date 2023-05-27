@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "645fba8415c30f66774495c3"
+  },
+  "products": [
+    {
+      "product": {
+        "$oid": "645c7a23097d733a11b5b8bb"
+      },
+      "count": 2,
+      "color": "grey",
+      "price": 55000,
+      "_id": {
+        "$oid": "645fba8415c30f66774495c4"
+      }
+    },
+    {
+      "product": {
+        "$oid": "645c7a78097d733a11b5b8c4"
+      },
+      "count": 2,
+      "color": "black",
+      "price": 1200,
+      "_id": {
+        "$oid": "645fba8415c30f66774495c5"
+      }
+    },
+    {
+      "product": {
+        "$oid": "645c7ad5097d733a11b5b8ca"
+      },
+      "count": 1,
+      "color": "white",
+      "price": 12000,
+      "_id": {
+        "$oid": "645fba8415c30f66774495c6"
+      }
+    }
+  ],
+  "cartTotal": 124400,
+  "orderby": {
+    "$oid": "645da0e2681543de81034588"
+  },
+  "createdAt": {
+    "$date": "2023-05-13T16:27:48.751Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T17:07:09.869Z"
+  },
+  "__v": 0,
+  "totalAfterDiscount": 111960
+}]

@@ -1,0 +1,118 @@
+[{
+  "_id": {
+    "$oid": "645a74c38895c5e257e19eff"
+  },
+  "firstname": "Abu5",
+  "lastname": "Shama5",
+  "email": "test1@test15.com",
+  "phone": "0192382190315",
+  "password": "$2b$10$cpFKKB98qY9xyXZt0fmZfe20sxUA0/O/acHVKXmIBy3bHUkaRBrRO",
+  "role": "user",
+  "cart": [],
+  "address": [],
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2023-05-09T16:28:51.944Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T14:55:34.947Z"
+  },
+  "__v": 0,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE3NGMzODg5NWM1ZTI1N2UxOWVmZiIsImlhdCI6MTY4MzczMDUzNCwiZXhwIjoxNjg0MzM1MzM0fQ.2nbB3KdpvZU9aEQ1K-qbHmhDH5BKHoWAZ6GbrgRGlNU"
+},{
+  "_id": {
+    "$oid": "645a74ce8895c5e257e19f02"
+  },
+  "firstname": "Abu",
+  "lastname": "Shama",
+  "email": "test1@test1.com",
+  "phone": "019238219031",
+  "password": "$2b$10$Ot9kSEj0HJVJknECWAAPkeTmcGRs9T.hj3q1ko/CBtkKmaobjTdiG",
+  "role": "user",
+  "cart": [],
+  "address": [],
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2023-05-09T16:29:02.351Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-09T16:29:02.351Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "645a78f8c85c0f5db91e39c6"
+  },
+  "firstname": "test",
+  "lastname": "test",
+  "email": "test@test.com",
+  "phone": "012345",
+  "password": "$2b$10$V0E7jeAha5FjQMT79HEG1eNcKtn4.5VpATWwTrJpQtfa2DiT.5rAG",
+  "role": "user",
+  "cart": [],
+  "address": [],
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2023-05-09T16:46:48.995Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-10T05:03:49.849Z"
+  },
+  "__v": 0,
+  "isBlocked": false,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE3OGY4Yzg1YzBmNWRiOTFlMzljNiIsImlhdCI6MTY4MzY5NTAyOSwiZXhwIjoxNjg0Mjk5ODI5fQ.yr6GdEwqgyEekH8PYVnFwJIBwAGDGZRUUqQS0jmRc1E"
+},{
+  "_id": {
+    "$oid": "645a8abbe543a19cbb0e9e7f"
+  },
+  "firstname": "admin",
+  "lastname": "admin",
+  "email": "admin@admin.com",
+  "phone": "0123456",
+  "password": "$2b$10$pDQmXRl8prfwXMjEUezufunlnnqMYLaeWAegIfUYToARnjZlgqmhm",
+  "role": "admin",
+  "cart": [],
+  "address": [],
+  "wishlist": [],
+  "createdAt": {
+    "$date": "2023-05-09T18:02:35.621Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-13T14:44:57.247Z"
+  },
+  "__v": 0,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWE4YWJiZTU0M2ExOWNiYjBlOWU3ZiIsImlhdCI6MTY4Mzk4OTA5NywiZXhwIjoxNjg0NTkzODk3fQ.ThGRdZG04Ms1EEqdS6KM-4RP_mBLZQeEhhciDmS_w-o",
+  "isBlocked": false
+},{
+  "_id": {
+    "$oid": "645da0e2681543de81034588"
+  },
+  "firstname": "Abu",
+  "lastname": "Shama",
+  "email": "abushama420@gmail.com",
+  "phone": "01234567",
+  "password": "$2b$10$.ErD7dT3Q9DEom.0XogOs.IgmLHz6Q5Sf/L2WarFVhpc5N04fBsqe",
+  "role": "admin",
+  "isBlocked": false,
+  "cart": [],
+  "address": [],
+  "wishlist": [
+    {
+      "$oid": "645c7a23097d733a11b5b8bb"
+    },
+    {
+      "$oid": "645c7a33097d733a11b5b8be"
+    },
+    {
+      "$oid": "645c7a44097d733a11b5b8c1"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-05-12T02:13:54.523Z"
+  },
+  "updatedAt": {
+    "$date": "2023-05-14T15:32:23.212Z"
+  },
+  "__v": 0,
+  "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NWRhMGUyNjgxNTQzZGU4MTAzNDU4OCIsImlhdCI6MTY4NDA3ODM0MywiZXhwIjoxNjg0NjgzMTQzfQ.hY2jYiBEPVsB0_8cmtAucfFVrlChxfmc9Sq5HyIsFaQ"
+}]
