@@ -47,7 +47,7 @@ router
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(
+  .post(
     authMiddleware,
     isAdmin,
     uploadFile.array("images", 10),

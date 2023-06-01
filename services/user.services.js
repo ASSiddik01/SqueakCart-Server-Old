@@ -998,7 +998,10 @@ exports.updateOrdersStatusService = async (id, status) => {
 
 // get all orders
 exports.getAllOrdersService = async () => {
-  const userOrders = await Order.find().populate("products.product").exec();
+  const userOrders = await Order.find()
+    .populate("products.product")
+    .populate("orderby")
+    .exec();
   return userOrders;
 };
 
@@ -1006,6 +1009,7 @@ exports.getAllOrdersService = async () => {
 exports.getOrderByUserIdService = async (id) => {
   const userOrders = await Order.findOne({ orderby: id })
     .populate("products.product")
+    .populate("orderby")
     .exec();
   return userOrders;
 };

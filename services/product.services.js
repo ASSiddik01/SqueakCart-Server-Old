@@ -22,7 +22,7 @@ exports.getProductsService = async (reqData) => {
   let filters = { ...reqData };
   const excludeFields = ["sort", "page", "limit", "fields"];
   excludeFields.forEach((filter) => delete filters[filter]);
-  const { limit = 12, page = 1, sort, fields } = reqData;
+  const { limit = 0, page = 1, sort, fields } = reqData;
   const queries = {};
   // sorting
   if (sort) {

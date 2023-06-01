@@ -23,22 +23,27 @@ var productSchema = new mongoose.Schema(
       required: true,
     },
     category: {
-      // type: mongoose.Schema.Types.ObjectId,
-      // ref: "Category",
-      type: String,
+      type: Array,
       required: true,
     },
     quantity: {
       type: Number,
       required: true,
     },
-    images: {
-      type: Array,
-    },
+    images: [
+      {
+        public_id: {
+          type: String,
+        },
+        url: {
+          type: String,
+        },
+      },
+    ],
     color: {
       type: Array,
     },
-    tags: {
+    tag: {
       type: Array,
     },
     brand: {
