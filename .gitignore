@@ -5,5 +5,5 @@ node_modules
 ds_store
 *.env
 package-lock.json
-public/images
+# public/images
 # images-*-*.jpeg
