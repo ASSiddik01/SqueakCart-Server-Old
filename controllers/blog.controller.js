@@ -7,6 +7,7 @@ const {
   likeBlogService,
   dislikeBlogService,
   blogImageUploadService,
+  blogImageDeleteService,
 } = require("../services/blog.services");
 
 // create blog
@@ -148,18 +149,37 @@ exports.dislikeBlog = async (req, res) => {
 // upload blog image
 exports.uploadImages = async (req, res) => {
   try {
-    const { id } = req.params;
     const files = req.files;
-    const result = await blogImageUploadService(id, files);
+    const result = await blogImageUploadService(files);
     res.status(200).json({
       success: true,
-      message: `Product rated successfully`,
+      message: `Blog image upload successfully`,
       data: result,
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: `Product rated failed`,
+      message: `Blog image upload failed`,
+      error: error.message,
+    });
+  }
+};
+
+// delete blog image
+exports.deleteImages = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const files = req.files;
+    const result = await blogImageDeleteService(id, files);
+    res.status(200).json({
+      success: true,
+      message: `Blog images delete successfully`,
+      data: result,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: `Blog images delete failed`,
       error: error.message,
     });
   }

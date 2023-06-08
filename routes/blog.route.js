@@ -20,18 +20,33 @@ router
   .get(blogControllers.getBlogs);
 
 router
-  .route("/upload/:id")
+  .route("/upload-img")
   /**
    * @api {post} /register
    * @apiDescription save user
    * @apiPermission all
    */
-  .patch(
+  .post(
     authMiddleware,
     isAdmin,
     uploadFile.array("images", 5),
     blogImageResize,
     blogControllers.uploadImages
+  );
+
+router
+  .route("/delete-img/:id")
+  /**
+   * @api {post} /register
+   * @apiDescription save user
+   * @apiPermission all
+   */
+  .delete(
+    authMiddleware,
+    isAdmin,
+    uploadFile.array("images", 10),
+    blogImageResize,
+    blogControllers.deleteImages
   );
 
 router

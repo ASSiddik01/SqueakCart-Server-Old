@@ -11,8 +11,16 @@ var blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    category: {
+    visibility: {
       type: String,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    category: {
+      type: Array,
       required: true,
     },
     views: {
@@ -57,6 +65,13 @@ var blogSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+blogSchema.pre("save", function (next) {
+  if (this.view == null) {
+    this.view = "0";
+  }
+  next();
+});
 
 //Export the model
 module.exports = mongoose.model("Blog", blogSchema);

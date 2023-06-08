@@ -1,6 +1,10 @@
 const Blog = require("../models/blog.schema");
 const User = require("../models/user.schema");
-const cloudInaryUploadImg = require("../utils/cloudinary");
+const {
+  cloudInaryUploadImg,
+  cloudInaryDeleteImg,
+} = require("../utils/cloudinary");
+
 const fs = require("fs");
 
 // create blog
@@ -137,7 +141,7 @@ exports.dislikeBlogService = async (blogId, loginUserId) => {
 };
 
 // product image upload service
-exports.blogImageUploadService = async (id, files) => {
+exports.blogImageUploadService = async (files) => {
   const uploader = (path) => cloudInaryUploadImg(path, "images");
   const urls = [];
   for (const file of files) {
@@ -146,17 +150,15 @@ exports.blogImageUploadService = async (id, files) => {
     urls.push(newPath);
     fs.unlinkSync(path);
   }
-  const updateBlog = await Blog.findByIdAndUpdate(
-    id,
-    {
-      images: urls?.map((file) => {
-        return file;
-      }),
-    },
-    {
-      new: true,
-    }
-  );
+  const images = urls?.map((file) => {
+    return file;
+  });
 
-  return updateBlog;
+  return images;
+};
+
+// product image delete service
+exports.blogImageDeleteService = async (id, files) => {
+  const deleted = await cloudInaryDeleteImg(id, "images");
+  return deleted;
 };
